@@ -1,0 +1,217 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+.desktop {
+  background: #008080;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+.win {
+  background: #c0c0c0;
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  width: 480px;
+  max-width: 98vw;
+  box-shadow: 2px 2px 0 #000;
+}
+.titlebar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  padding: 3px 4px 3px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.titlebar-left { display: flex; align-items: center; gap: 5px; }
+.titlebar-text { color: #fff; font-size: 11px; font-weight: bold; }
+.titlebar-btns { display: flex; gap: 2px; }
+.tbtn {
+  width: 16px; height: 14px;
+  background: #c0c0c0;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: bold; color: #000; cursor: default;
+}
+.menubar {
+  background: #c0c0c0;
+  border-bottom: 1px solid #808080;
+  padding: 2px 4px;
+  display: flex;
+}
+.menuitem { padding: 2px 6px; font-size: 11px; color: #000; cursor: default; }
+.menuitem:hover { background: #000080; color: #fff; }
+.win-body { padding: 20px 20px 16px; background: #c0c0c0; text-align: center; }
+.sign {
+  background: #ffff00;
+  border-top: 3px solid #fff;
+  border-left: 3px solid #fff;
+  border-right: 3px solid #808000;
+  border-bottom: 3px solid #808000;
+  padding: 8px 20px;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+.sign-text {
+  font-family: 'VT323', monospace;
+  font-size: 32px;
+  color: #000;
+  letter-spacing: 2px;
+}
+.inset-box {
+  background: #c0c0c0;
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  text-align: left;
+  font-size: 11px;
+  color: #000;
+  line-height: 1.9;
+}
+.divider { border: none; border-top: 1px solid #808080; border-bottom: 1px solid #fff; margin: 10px 0; }
+.counter-wrap { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; }
+.counter-label { font-size: 11px; color: #000; }
+.counter-display {
+  background: #000; color: #00ff00;
+  font-family: 'VT323', monospace;
+  font-size: 22px; padding: 2px 10px;
+  letter-spacing: 3px;
+  border-top: 1px solid #004400; border-left: 1px solid #004400;
+  border-right: 1px solid #00cc00; border-bottom: 1px solid #00cc00;
+}
+.progress-area { margin-bottom: 12px; }
+.progress-label-row { display: flex; justify-content: space-between; font-size: 11px; color: #000; margin-bottom: 3px; }
+.progress-outer {
+  height: 18px; background: #fff;
+  border-top: 1px solid #808080; border-left: 1px solid #808080;
+  border-right: 1px solid #fff; border-bottom: 1px solid #fff;
+  overflow: hidden;
+}
+.progress-inner {
+  height: 100%;
+  background: repeating-linear-gradient(to right, #000080 0px, #000080 8px, #1084d0 8px, #1084d0 16px);
+  width: 0%;
+  animation: fillProg 2.5s steps(10, end) forwards 0.3s;
+}
+@keyframes fillProg { to { width: 67%; } }
+.blink { animation: blink 1s step-start infinite; }
+@keyframes blink { 50% { visibility: hidden; } }
+.note { font-size: 11px; color: #000; margin-bottom: 4px; }
+.statusbar { background: #c0c0c0; border-top: 1px solid #808080; padding: 2px 4px; display: flex; gap: 3px; }
+.statuspane {
+  border-top: 1px solid #808080; border-left: 1px solid #808080;
+  border-right: 1px solid #fff; border-bottom: 1px solid #fff;
+  padding: 1px 8px; font-size: 11px; color: #000; flex: 1;
+}
+.taskbar {
+  width: 480px; max-width: 98vw;
+  background: #c0c0c0;
+  border-top: 2px solid #fff;
+  height: 28px; display: flex; align-items: center; padding: 0 4px; gap: 4px;
+  box-shadow: 0 2px 0 #000;
+}
+.start-btn {
+  background: #c0c0c0;
+  border-top: 2px solid #fff; border-left: 2px solid #fff;
+  border-right: 2px solid #404040; border-bottom: 2px solid #404040;
+  padding: 2px 10px; font-size: 11px; font-weight: bold;
+  cursor: default; height: 22px; display: flex; align-items: center; gap: 4px;
+}
+.taskbar-btn {
+  background: #c0c0c0;
+  border-top: 1px solid #808080; border-left: 1px solid #808080;
+  border-right: 1px solid #fff; border-bottom: 1px solid #fff;
+  padding: 2px 8px; font-size: 11px; height: 20px;
+  display: flex; align-items: center; cursor: default;
+}
+.taskbar-clock {
+  margin-left: auto;
+  border-top: 1px solid #808080; border-left: 1px solid #808080;
+  border-right: 1px solid #fff; border-bottom: 1px solid #fff;
+  padding: 2px 8px; font-size: 11px; color: #000;
+}
+</style>
+
+<div class="desktop">
+  <div class="win">
+    <div class="titlebar">
+      <div class="titlebar-left">
+        <span class="titlebar-text">Under Construction - Microsoft Internet Explorer</span>
+      </div>
+      <div class="titlebar-btns">
+        <div class="tbtn">_</div>
+        <div class="tbtn">&#9633;</div>
+        <div class="tbtn">&#10005;</div>
+      </div>
+    </div>
+    <div class="menubar">
+      <span class="menuitem">File</span>
+      <span class="menuitem">Edit</span>
+      <span class="menuitem">View</span>
+      <span class="menuitem">Favorites</span>
+      <span class="menuitem">Help</span>
+    </div>
+    <div class="win-body">
+      <div class="sign">
+        <div class="sign-text">UNDER CONSTRUCTION</div>
+      </div>
+      <div class="inset-box">
+        <p>&#9658; This page is currently under construction.</p>
+        <p>&#9658; Please check back soon for updates!</p>
+        <p>&#9658; Last updated: <span class="blink">04/08/1999</span></p>
+      </div>
+      <div class="progress-area">
+        <div class="progress-label-row">
+          <span>Building page...</span>
+          <span id="pct">0%</span>
+        </div>
+        <div class="progress-outer">
+          <div class="progress-inner"></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="counter-wrap">
+        <span class="counter-label">Visitors:</span>
+        <div class="counter-display" id="counter">004821</div>
+      </div>
+      <p class="note">&#9733; Best viewed in Internet Explorer 4.0 at 800x600 &#9733;</p>
+    </div>
+    <div class="statusbar">
+      <div class="statuspane">Done</div>
+      <div class="statuspane" style="flex:2;">Internet zone</div>
+    </div>
+  </div>
+
+  <div class="taskbar">
+    <div class="start-btn">&#8862; Start</div>
+    <div class="taskbar-btn">Under Construction - Inter...</div>
+    <div class="taskbar-clock" id="clock">4:21 PM</div>
+  </div>
+</div>
+
+<script>
+  let count = 4821;
+  setInterval(() => { count++; document.getElementById('counter').textContent = String(count).padStart(6,'0'); }, 4000);
+  function updateClock() {
+    const now = new Date();
+    let h = now.getHours(), m = String(now.getMinutes()).padStart(2,'0');
+    const ap = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    document.getElementById('clock').textContent = h + ':' + m + ' ' + ap;
+  }
+  updateClock(); setInterval(updateClock, 60000);
+  let p = 0;
+  const iv = setInterval(() => { p = Math.min(p+7,67); document.getElementById('pct').textContent = p+'%'; if(p>=67) clearInterval(iv); }, 250);
+</script>
